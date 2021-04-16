@@ -1,0 +1,29 @@
+
+# Theme metadata
+name = "cinza-amarelo"
+
+# Is theme light or dark?
+light = true
+
+## https://htmlcolorcodes.com/color-chart/
+
+# Primary
+primary = "#FFEE58" 
+
+
+# Menu
+menu_primary = "#FFEE58" # amarelo material design
+menu_text = "#546E7A" # cinza mais escuro
+menu_text_active = "#BF360C"  # alaranjado bem escuro
+menu_title = "#546E7A" # cinza mais escuro
+
+# Links
+link = "#546E7A" 
+link_hover = "#B71C1C"
+link_decoration = "underline"
+
+# Home sections
+background = "#CFD8DC" # cinza mais claro
+home_section_odd = "#CFD8DC" 
+home_section_even = "#CFD8DC" 
+

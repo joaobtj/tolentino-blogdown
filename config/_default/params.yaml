@@ -5,9 +5,9 @@
 
 # Appearance
 
-theme: 1950s
-day_night: true
-font: ''
+theme: cinza-amarelo
+day_night: false
+font: rose
 font_size: L
 
 # SEO
@@ -59,7 +59,7 @@ twitter: ''
 
 main_menu:
   enable: true
-  align: l
+  align: r
   show_logo: true
   show_language: true
   show_day_night: true
@@ -82,7 +82,7 @@ math: false
 diagram: false
 privacy_pack: false
 edit_page:
-  repo_url: ''
+  repo_url: https://github.com/joaobtj/tolentino-blogdown
   content_dir: ''
   repo_branch: main
   editable:
@@ -152,8 +152,8 @@ marketing:
   baidu_site_verification: ''
   baidu_tongji: ''
 cms:
-  branch: master
+  branch: main
   local_backend: false
 icon:
   pack:
-    ai: false
+    ai: true

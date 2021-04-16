@@ -1,0 +1,3 @@
+cor da fonte: scss na pasta asset
+
+demais cores: theme na pasta data
