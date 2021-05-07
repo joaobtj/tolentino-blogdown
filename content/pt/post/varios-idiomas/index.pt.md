@@ -1,4 +1,3 @@
-
 ---
 title: Site em vários idiomas
 subtitle: Como publicar seu site em vários idiomas
