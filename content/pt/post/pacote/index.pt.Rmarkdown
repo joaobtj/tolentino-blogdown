@@ -102,5 +102,5 @@ A melhor forma de renderizar o arquivo README.Rmd é com a funçao `build_readme
 1. Sempre faça o *check* do pacote frequentemente quando estiver desenvolvendo. Isso facilita encontrar possíveis erros. Use o comando `check()` ou o atalho Ctrl+Shift+E
 1. Use `devtools::load_all(".")` para testar as funções durante o desenvolvimento. Alternativamente, o atalho é Ctrl+Shift+L Esta função disponibiliza as funções simulando o processo de instalar e carregar o pacote.
 1. Para instalar seu pacote no diretório local, use o comando `devtools::install()`
-
+1. Muito mais informações em https://r-pkgs.org/index.html
 
