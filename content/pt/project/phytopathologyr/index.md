@@ -23,3 +23,9 @@ url_slides: ""
 url_video: ""
 ---
 
+A epidemiologia de doenças de plantas necessita de processamento computacional para resolver suas análises. As principais análises são:
+* Modelos de progresso temporal de doenças
+* Análise de sobrevivência
+* Curva de dose-resposta
+
+Essas funções podem ser implementadas em um pacote em R que facilitará as análises feitas pelos pesquisadores.

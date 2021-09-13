@@ -14,7 +14,7 @@ summary: hf - um pacote em R para o cálculo da perda de carga em tubulações
 tags:
 - agronomia
 - hf
-- hidraulica
+- hidráulica
 - engenharia
 - r
 

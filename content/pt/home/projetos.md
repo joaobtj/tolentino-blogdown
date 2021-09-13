@@ -31,7 +31,18 @@ content:
     tag: r
   - name: Agronomia
     tag: agronomia
-
+  - name: Irrigação
+    tag: irrigação
+  - name: Hidráulica
+    tag: hidráulica
+  - name: Fitopatologia
+    tag: fitopatologia
+  - name: Modelagem
+    tag: modelagem
+    
+    
+    
+    
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.
   columns: '2'

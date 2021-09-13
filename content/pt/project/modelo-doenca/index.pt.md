@@ -1,5 +1,5 @@
 ---
-date: "2021-05-07"
+date: "2021-05-10"
 external_link: ''
 image:
   caption: 
@@ -10,17 +10,19 @@ image:
 #   name: GitHub
 #   url: https://github.com/joaobtj/hf/
 slides: example
-summary: Uma análise dos produtos registrados para o controle biológico de doenças de plantas no mercado brasileiro.
+summary: Utilização de modelos de simulação do progresso de doenças de plantas.
 tags:
 - agronomia
 - fitopatologia
-- controle biológico
-- agrofit
+- modelagem
+- doenças de plantas
 
-title: Controle Biológico de Doenças de Plantas
+
+title: Modelos de simulação de doenças de plantas
 url_code: ""
 url_pdf: ""
 url_slides: ""
 url_video: ""
 ---
 
+A modelagem
