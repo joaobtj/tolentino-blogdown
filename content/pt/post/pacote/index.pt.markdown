@@ -53,7 +53,7 @@ Aceite para fazer o *commit* dos primeiros arquivos e reiniciar o RStudio para c
 Crie sua primeira função com o comando `use_r()`
 
 ```r
-use_r(fun)
+use_r("fun")
 ```
 
 em que `fun`é o nome da função. Esse comando adiciona um arquivo com o mesmo nome da função dentro do subdiretório R.
@@ -96,6 +96,26 @@ Após fazer todos os primeiros *commit's*, suba seu pacote para o GitHub com o c
 O arquivo README é a página inicial do pacote no GitHub. A função `use_readme_rmd()` cria o arquivo README.Rmd, em que é possível descrever o pacote e mostrar alguns exemplos de uso. também é possível usar código R neste arquivo.
 
 A melhor forma de renderizar o arquivo README.Rmd é com a funçao `build_readme()`.
+
+## Use news
+
+O comando `use_news_md()` cria um arquivo NEWS.md. Neste arquivo, podemos divulgar todas as alterações feitas no pacote a cada lançamento de uma nova versão.
+
+## Numeração da versão
+
+Sempre que uma nova versão for lançada, a numeração deve ser incrementada. O comando `use_version()` incrementa a numeraçao no arquivo *DESCRIPTION*.
+
+As opções são:
+
+1. major --> 1.0.0 - incrementa o primeiro número
+2. minor --> 0.1.0 - incrementa o segundo número
+3. patch --> 0.0.1 - incrementa o terceiro número
+4. dev --> 0.0.0.9001 - incrementa o quarto número (se houver)
+
+
+Similar, o comando `use_dev_version()` incrementa para uma versão de desenvolvimento, por exemplo, de 1.0.0 para 1.0.0.9000.
+
+
 
 ## Dicas
 
