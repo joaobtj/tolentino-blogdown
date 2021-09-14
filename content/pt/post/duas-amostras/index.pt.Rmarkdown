@@ -1,0 +1,200 @@
+---
+title: N maneiras de comparar duas amostras
+subtitle: A comparação entre duas amostras é a mais simples e pode ser feita de muitas maneiras diferentes.
+summary: A comparação entre duas amostras é a mais simples e pode ser feita de muitas maneiras diferentes.
+author: joaobtj
+date: '2021-05-10'
+slug: duas-amostras
+tags:
+  - r
+  - estatística
+lastmod: 
+draft: true
+featured: no
+image:
+  caption: ''
+  focal_point: smart
+  placement: 1
+  preview_only: no
+projects: []
+---
+
+## Comparação entre duas amostras
+
+Existem vários testes descritos na literatura para comparar duas amostras. Este post não tem a intenção de descrever todos estes testes e suas sutilezas, mas sim demonstrar a aplicaçao prática com códigos do R.
+
+Para exemplificar, utilizarei os dados das medidas do comprimento das pétalas de duas espécies de flores: *Iris versicolor* e *Iris virginica*. Estes dados estão no famoso dataset `iris`. 
+
+
+<a title="C T Johansson, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:IMG_7911-Iris_virginica.jpg"><img width="200" alt="IMG 7911-Iris virginica" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/IMG_7911-Iris_virginica.jpg/512px-IMG_7911-Iris_virginica.jpg"></a>
+
+O dataset foi modificado para conter apenas duas espécies (*I. versicolor* e *I. virginica*) e uma coluna (Comprimento das pétalas em centímetros). Além disso, foi traduzido para o português. Para cada espécie, há 50 indivíduos (flores) que compõe a amostra.
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r, warning=FALSE}
+library(dplyr)
+iris.pt <- iris %>%
+  filter(Species == "versicolor" | Species == "virginica") %>%
+  mutate(
+    especies = factor(Species),
+    petalas_comprimento = Petal.Length * 2.54
+  ) %>%
+  select(especies, petalas_comprimento)
+```
+
+
+```{r, echo=FALSE, out.width="50%"}
+library(ggplot2)
+ggplot(
+  iris.pt,
+  aes(x = especies, y = petalas_comprimento, color = especies)
+) +
+  geom_jitter(position = position_jitter(0.10)) +
+  stat_summary(fun = "mean", geom = "point", shape = 18, size = 3, color = "blue") +
+  theme(legend.position = "none") +
+  scale_color_brewer(palette = "Dark2")
+```
+
+```{r include=FALSE}
+ggsave("featured.png")
+```
+
+
+Foram selecionados pacotes e funções que aceitam a fórmula do tipo `resposta ~ grupo` em que `resposta`contém os valores observados e `grupo` é um fator (ou vetor) dos grupos correspondentes.
+
+
+### Teste t de Student
+
+Iniciando pelo mais famoso, o **teste t de Student** é um teste paramétrico usado quando as amostras tem distribuição Normal (ou simétrica). Podemos verificar a proximidade da distribuição normal pelos gráficos densidade e qq-plot:
+
+```{r echo=FALSE, out.width="100%"}
+d <-  ggplot(iris.pt, aes(x = petalas_comprimento)) +
+  geom_density()+
+  facet_wrap(~especies)
+
+q <- ggplot(iris.pt, aes(sample = petalas_comprimento)) +
+  geom_qq() +
+  geom_qq_line()+
+  facet_wrap(~especies)
+
+ggpubr::ggarrange(d,q)
+```
+
+
+ou pelo teste de Shapiro-Wilk:
+
+```{r, echo=FALSE}
+st <- iris.pt %>%
+  group_by(especies) %>%
+  summarise(
+    W = shapiro.test(petalas_comprimento)$statistic,
+    "p-valor" = shapiro.test(petalas_comprimento)$p.value
+  )
+knitr::kable(st)
+```
+
+O teste t é calculado pela função `t.test`: 
+
+```{r}
+t.test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+
+### Teste de Wilcoxon-Mann-Whitney
+
+Também chamado de teste de Wilcoxon, é um teste baseado no soma dos postos.
+
+```{r}
+wilcox.test(petalas_comprimento ~ especies, data = iris.pt)
+
+coin::wilcox_test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+
+### Teste de Van der Waerden
+
+<!-- The Van der Waerden test is a non-parametric test for testing the hypothesis that k sample distribution functions are equal. Van der Waerden's test is similar to the Kruskal-Wallis one-way analysis of variance test in that it converts the data to ranks and then to standard normal distribution quantiles. The ranked data is known as the 'normal scores'. Hence, the Van der Waerden test is sometimes referred to as a 'normal scores test'. -->
+
+<!-- The benefit of Van der Waerden's test is that it performs well compared to ANOVA (analysis of variance) when the group population samples are normally distributed and the Kruskal-Wallis test when the samples are not normally distributed. -->
+
+<!-- The null and alternative hypotheses of the Van der Waerden test can be generally stated as follows: -->
+
+<!-- H0: All of the k population distribution functions are equal. -->
+<!-- HA: At least one of the k population distribution functions are not equal and tend to yield larger observations to the other distribution functions. -->
+
+
+```{r}
+coin::normal_test(petalas_comprimento ~ especies, data = iris.pt)
+
+PMCMR::vanWaerden.test(petalas_comprimento ~ especies, data = iris.pt)
+
+```
+
+
+### Teste de Kolmogoroc-Smirnov
+
+
+### Teste de Wald e Wolfowitz (Runs)
+
+### Teste de Mediana
+
+
+
+### Monte Carlo
+
+
+### Teste de permutação de Fisher-Pitman
+
+
+```{r}
+perm::permTS(petalas_comprimento ~ especies, data = iris.pt)
+
+coin::oneway_test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+
+### Bootstrap
+
+
+
+
+
+
+
+
+### Teste de Kruskal Wallis
+
+
+
+```{r}
+
+kruskal.test(petalas_comprimento ~ especies, data = iris.pt)
+
+kSamples::qn.test(petalas_comprimento ~ especies, data = iris.pt, test="KW")
+
+coin::kruskal_test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+### Teste de mediana de Brown-Mood
+
+```{r}
+coin::median_test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+
+### Teste de Savage
+
+```{r}
+coin::savage_test(petalas_comprimento ~ especies, data = iris.pt)
+```
+
+```{r}
+
+```
+
+
