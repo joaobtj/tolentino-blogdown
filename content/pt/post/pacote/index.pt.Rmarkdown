@@ -66,12 +66,17 @@ Alternativamente, é possível criar o arquivo diretamente dentro do subdiretór
 
 Use os comentários do tipo *Roxygen* com o atalho Ctrl+Alt+Shift+R.
 
-Na seção dos comentários, também adicione as funções externas utilizadas, por exemplo:
+## Importe funções de outros pacotes
+
+Funções externas pode ser utilizadas com `::` ou importando da seguinte forma:
 
 ```r
 #' @importFrom stats lm
 #' @importFrom magrittr %>%
 ```
+
+Ainda, para adicionar o pacote na seção Import do arquivo DESCRIPTION, utilize a função `use_package("stats")`
+
 ## Use uma licença
 
 Para distribuir seu pacote, é importante escolher uma licença. As mais populares são:
