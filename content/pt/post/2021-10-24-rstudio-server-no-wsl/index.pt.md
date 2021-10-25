@@ -52,8 +52,8 @@ sudo apt install --no-install-recommends software-properties-common dirmngr
 wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-# install R and its dependencies.
-sudo apt install r-base r-base-dev
+# install R and others
+sudo apt install r-base r-base-dev libcurl4-openssl-dev libssl-dev libxml2-dev
 
 ```
 
