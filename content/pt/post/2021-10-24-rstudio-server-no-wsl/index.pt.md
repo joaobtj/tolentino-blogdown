@@ -68,14 +68,17 @@ Adaptado de https://cran.r-project.org/bin/linux/ubuntu
 
 ## Instalar o RStudio Server
 
-No termina do Ubuntu, execute os seguitnes códigos:
+No terminal do Ubuntu, execute os seguintes códigos:
 
 ```
 sudo apt-get install gdebi-core
-wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
-sudo gdebi rstudio-server-2021.09.0-351-amd64.deb
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.2-382-amd64.deb
+sudo gdebi rstudio-server-2021.09.2-382-amd64.deb
 ```
 
+Versão:  2021.09.2+382 de 2022-01-10
+
+Verifique a versão mais recente neste link:  https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/
 
 
 ## Acessar o RStudio Server
