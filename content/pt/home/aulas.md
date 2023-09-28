@@ -29,6 +29,10 @@ design:
 [Irrigação Pressurizada](https://irrigacao.tolentino.pro.br/)
 
   É um livro de apoio para a disciplina de Irrigação e Drenagem ministrada no curso de Agonomia UFSC/CCR. Sua organização cobre parte do conteúdo programático da referida disciplina, referente aos métodos de irrigação pressurizada.
+  
+[Bioestatística](https://biostat.tolentino.pro.br/)
+
+Este é um livro utilizado como texto-base para a disciplina de Bioestatística do Programa de Pós-Graduação em Ecossistemas Agrícolas e Naturais da Universidade Federal de Santa Catarina (UFSC) Campus de Curitibanos.
 
 
 
